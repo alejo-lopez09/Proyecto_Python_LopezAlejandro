@@ -9,6 +9,9 @@ campers=[{
     "estado":"inscrito",
     "riesgo":"Bajo",
     "notas": [],
+    
+    
+
 
     }]
 trainers=[]
@@ -39,6 +42,7 @@ evaluaciones={}
 riesgo_academico={}
 
 
+password_coordinador = "admin123"
 
 
 
@@ -50,6 +54,8 @@ def registrar_camper():
     acudiente=input("Acudiente:")
     telefono_cel=input("Telefono celular:")
     telefono_fijo=input("Telefono fijo:")
+    password = input("Cree una contraseña: ")
+
     
     camper = {
         "id": id,
@@ -61,7 +67,9 @@ def registrar_camper():
         "telefono_fijo": telefono_fijo,
         "estado": "inscrito",
         "riesgo": "Bajo",
-        "notas": [],}
+        "notas": [],
+        "password": password
+}
     
     campers.append(camper)
     print("Camper registrado exitosamente!!!!")
@@ -84,21 +92,26 @@ def listar_campers():
             
 def menu_principal():
     while True:
-        print("\n===== SISTEMA CAMPUS =====")
+        print("===== SISTEMA CAMPUS =====")
         print("1. Coordinador")
         print("2. Trainer")
         print("3. Camper")
         print("0. Salir")
 
-        opcion = input("Seleccione su perfil: ")
+        opcion = int(input("Seleccione su perfil: "))
 
-        if opcion == "1":
-            menu_coordinador()
-        elif opcion == "2":
+        if opcion == 1:
+             clave = input("Ingrese contraseña de coordinador: ")
+             if clave == password_coordinador:
+              menu_coordinador()
+             else:
+              print("Contraseña incorrecta")
+
+        elif opcion == 2:
             menu_trainer()
-        elif opcion == "3":
+        elif opcion == 3:
             menu_camper()
-        elif opcion == "0":
+        elif opcion == 0:
             print("Saliendo...")
             break
         else:
@@ -108,7 +121,7 @@ def menu_principal():
 
 def menu_coordinador():
     while True:
-        print("\n--- COORDINADOR ---")
+        print("--- COORDINADOR ---")
         print("1. Registrar Camper")
         print("2. Listar Campers")
         print("3. Registrar Examen Inicial")
@@ -148,33 +161,44 @@ def menu_coordinador():
 
 
 def menu_trainer():
-    while True:
-        print("--- TRAINER ---")
-        print("1. Evaluar Módulo")
-        print("2. Reporte General")
-        print("3. Reporte por Camper")
-        print("0. Volver")
+    id_buscar = input("Ingrese su ID de trainer: ")
+    clave = input("Ingrese su contraseña: ")
 
-        opcion = input("Seleccione: ")
+    for trainer in trainers:
+        if trainer["id"] == id_buscar and trainer["password"] == clave:
 
-        if opcion == "1":
-            evaluar_modulo()
-        elif opcion == "2":
-            reporte_general()
-        elif opcion == "3":
-            reporte_camper()
-        elif opcion == "0":
-            break
-        else:
-            print("Opción inválida")
+            while True:
+                print("--- TRAINER ---")
+                print("1. Evaluar Módulo")
+                print("2. Reporte General")
+                print("3. Reporte por Camper")
+                print("0. Volver")
+
+                opcion = input("Seleccione: ")
+
+                if opcion == "1":
+                    evaluar_modulo()
+                elif opcion == "2":
+                    reporte_general()
+                elif opcion == "3":
+                    reporte_camper()
+                elif opcion == "0":
+                    break
+                else:
+                    print("Opción inválida")
+            return
+
+    print("ID o contraseña incorrectos.")
+
 
 
 
 def menu_camper():
     id_buscar = input("Ingrese su ID: ")
+    clave = input("Ingrese su contraseña: ")
 
     for camper in campers:
-        if camper["id"] == id_buscar:
+        if camper["id"] == id_buscar and camper["password"] == clave:
             print("--- INFORMACIÓN DEL CAMPER ---")
             print("Nombre:", camper["nombre"])
             print("Estado:", camper["estado"])
@@ -182,11 +206,14 @@ def menu_camper():
             print("Notas:", camper["notas"])
             return
 
-    print("Camper no encontrado.")
+    print("ID o contraseña incorrectos.")
+
 
 def registrar_trainer():
     id_trainer = input("ID del trainer: ")
     nombre = input("Nombre: ")
+    password_trainer = input("Cree una contraseña para el trainer: ")
+
 
     print("Seleccione la ruta que va a entrenar:")
 
@@ -207,7 +234,9 @@ def registrar_trainer():
     trainer = {
         "id": id_trainer,
         "nombre": nombre,
-        "ruta": ruta_seleccionada
+        "ruta": ruta_seleccionada,
+        "password": password_trainer
+
     }
 
     trainers.append(trainer)
@@ -341,7 +370,7 @@ def menu_reportes():
 
 
 def reporte_general():
-    print("\n--- REPORTE GENERAL ---")
+    print("--- REPORTE GENERAL ---")
 
     if len(campers) == 0:
         print("No hay campers registrados.")
@@ -360,7 +389,7 @@ def reporte_general():
             print("Notas: Sin registros")
 
 def reporte_camper():
-    print("\n--- REPORTE POR CAMPER ---")
+    print("--- REPORTE POR CAMPER ---")
 
     id_buscar = input("Ingrese el ID del camper: ")
 
@@ -382,35 +411,35 @@ def reporte_camper():
 
 
 def reporte_inscritos():
-    print("\n--- Campers Inscritos ---")
+    print("--- Campers Inscritos ---")
     for camper in campers:
         if camper["estado"] == "inscrito":
             print(camper["nombre"], camper["apellido"])
 
 
 def reporte_aprobados():
-    print("\n--- Campers Aprobados ---")
+    print("--- Campers Aprobados ---")
     for camper in campers:
         if camper["estado"] == "Aprobado":
             print(camper["nombre"], camper["apellido"])
 
 
 def reporte_riesgo():
-    print("\n--- Campers en Riesgo Alto ---")
+    print("--- Campers en Riesgo Alto ---")
     for camper in campers:
         if camper["riesgo"] == "Alto":
             print(camper["nombre"], camper["apellido"])
 
 
 def reporte_por_ruta():
-    print("\n--- Campers por Ruta ---")
+    print("--- Campers por Ruta ---")
     for camper in campers:
         if "ruta" in camper and camper["ruta"] != None:
             print(camper["nombre"], "-", camper["ruta"])
 
 
 def reporte_rutas():
-    print("\n--- REPORTE DE RUTAS ---")
+    print("--- REPORTE DE RUTAS ---")
 
     for nombre, datos in rutas.items():
         print("\nRuta:", nombre)
