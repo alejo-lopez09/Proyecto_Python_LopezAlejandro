@@ -41,6 +41,7 @@ matriculas={}
 evaluaciones={}
 riesgo_academico={}
 grupos = []
+import json
 
 
 
@@ -90,6 +91,23 @@ def listar_campers():
             print("Nombre:", camper["nombre"], camper["apellido"])
             print("Estado:", camper["estado"])
             print("Riesgo:", camper["riesgo"])
+
+
+def cargar_datos():
+    global campers, trainers, rutas
+
+    try:
+        with open("datos.json", "r") as archivo:
+            datos = json.load(archivo)
+            campers = datos["campers"]
+            trainers = datos["trainers"]
+            rutas = datos["rutas"]
+    except FileNotFoundError:
+        print("Archivo JSON no encontrado, se creará uno nuevo.")
+
+
+
+
             
             
 def menu_principal():
@@ -209,6 +227,14 @@ def menu_camper():
             return
 
     print("ID o contraseña incorrectos.")
+
+def guardar_datos():
+    with open("datos.json", "w") as archivo:
+        json.dump({
+            "campers": campers,
+            "trainers": trainers,
+            "rutas": rutas
+        }, archivo, indent=4)
 
 
 def registrar_trainer():
@@ -495,4 +521,6 @@ def asignar_grupo(camper_id):
 
 
 if __name__ == "__main__":
+    cargar_datos()
     menu_principal()
+    guardar_datos()
