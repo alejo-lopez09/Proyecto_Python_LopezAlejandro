@@ -558,6 +558,34 @@ def reporte_rutas():
              for camper in campers:
                  if camper["id"] == id_camper:
                      print("-", camper["nombre"], camper["apellido"])
+        
+
+
+def estadisticas_modulos(ruta_filtro=None, trainer_filtro=None):
+    
+    stats = {}
+    for ev in evaluaciones:
+        ruta = ev.get("ruta")
+        modulo = ev.get("modulo")
+        trainer = ev.get("trainer")  
+        if ruta_filtro and ruta != ruta_filtro:
+            continue
+        if trainer_filtro and trainer != trainer_filtro:
+            continue
+        key = (ruta, modulo, trainer)
+        if key not in stats:
+            stats[key] = {"aprobados": 0, "reprobados": 0, "total": 0}
+        stats[key]["total"] += 1
+        if ev["aprobado"]:
+            stats[key]["aprobados"] += 1
+        else:
+            stats[key]["reprobados"] += 1
+
+    
+    for (ruta, modulo, trainer), v in stats.items():
+        print(f"Ruta: {ruta} | Módulo: {modulo} | Trainer: {trainer}")
+        print(f"  Aprobados: {v['aprobados']}  Reprobados: {v['reprobados']}  Total: {v['total']}")
+
 
 
 
