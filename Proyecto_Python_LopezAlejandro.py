@@ -228,9 +228,9 @@ def menu_coordinador():
         elif opcion == 9:
             registrar_trainer()
         elif opcion==10:
-            registrar_matricula
+            registrar_matricula()
         elif opcion==11:
-            estadisticas_modulos
+            estadisticas_modulos()
 
         elif opcion == 0:
             break
@@ -316,7 +316,7 @@ def registrar_trainer():
         "id": id_trainer,
         "nombre": nombre,
         "rutas": [ruta],
-        "horario": ["Lunes 6am-10am","Martes 6am-10am" "Miércoles 6am-10am", "Jueves 6am-10am", "Viernes 6am-10am"],
+        "horario": ["Lunes 6am-10am","Martes 6am-10am" ,"Miércoles 6am-10am", "Jueves 6am-10am", "Viernes 6am-10am"],
 
             "password": password_trainer
     }
