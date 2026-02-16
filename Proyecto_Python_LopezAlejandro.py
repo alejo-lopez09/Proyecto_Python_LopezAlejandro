@@ -9,6 +9,7 @@ campers=[{
     "estado":"inscrito",
     "riesgo":"Bajo",
     "notas": [],
+    "password":"123456"
     
     
 
