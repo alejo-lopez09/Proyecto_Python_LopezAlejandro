@@ -38,11 +38,13 @@ rutas = {
 }
 
 
-matriculas={}
-evaluaciones={}
+matriculas=[]
+evaluaciones=[]
 riesgo_academico={}
 grupos = []
 import json
+from datetime import datetime
+
 
 
 
@@ -106,6 +108,54 @@ def cargar_datos():
     except FileNotFoundError:
         print("Archivo JSON no encontrado, se creará uno nuevo.")
 
+from datetime import datetime
+
+def registrar_matricula():
+    id_camper = input("ID del camper a matricular: ")
+    
+    camper = next((c for c in campers if c["id"] == id_camper), None)
+    if not camper:
+        print("Camper no encontrado.")
+        return
+    if camper.get("estado") != "Aprobado":
+        print("El camper debe estar en estado 'Aprobado' para matricularse.")
+        return
+
+    
+    if len(trainers) == 0:
+        print("No hay trainers registrados.")
+        return
+    print("Trainers disponibles:")
+    for t in trainers:
+        print(f"{t['id']} - {t['nombre']} (Rutas: {t.get('rutas', t.get('ruta'))})")
+    id_trainer = input("Ingrese ID del trainer encargado: ")
+    trainer = next((t for t in trainers if t["id"] == id_trainer), None)
+    if not trainer:
+        print("Trainer no encontrado.")
+        return
+
+    ruta = input("Ingrese ruta asignada (ej. NodeJS): ")
+    if ruta not in rutas:
+        print("Ruta no válida.")
+        return
+
+    fecha_inicio = input("Fecha inicio (YYYY-MM-DD): ")
+    fecha_fin = input("Fecha fin (YYYY-MM-DD): ")
+    salon = input("Salón de entrenamiento: ")
+
+    matricula = {
+        "camper_id": id_camper,
+        "trainer_id": id_trainer,
+        "ruta": ruta,
+        "fecha_inicio": fecha_inicio,
+        "fecha_fin": fecha_fin,
+        "salon": salon,
+        "fecha_matricula": datetime.now().isoformat()
+    }
+    matriculas.append(matricula)
+    print("Matrícula creada correctamente.")
+
+
 
 
 
@@ -152,6 +202,7 @@ def menu_coordinador():
         print("7. Reporte Riesgo")
         print("8. Reporte por Ruta")
         print("9. Registrar Trainer")
+        print("10. Registrar Matricula")
         print("0. Volver")
 
         opcion =int(input("Seleccione: "))
@@ -174,6 +225,8 @@ def menu_coordinador():
             reporte_por_ruta()
         elif opcion == 9:
             registrar_trainer()
+        elif opcion==10:
+            registrar_matricula
 
         elif opcion == 0:
             break
@@ -356,30 +409,46 @@ def evaluar_modulo():
 
     for camper in campers:
         if camper["id"] == id_buscar:
-
-            if camper["estado"] != "Cursando":
+            if camper.get("estado") != "Cursando":
                 print("El camper no está cursando ninguna ruta.")
                 return
 
+            modulo = input("Nombre del módulo (ej. Fundamentos): ")
             teorica = float(input("Nota teórica: "))
             practica = float(input("Nota práctica: "))
             quices = float(input("Nota quices/trabajos: "))
-
             nota_final = (teorica * 0.3) + (practica * 0.6) + (quices * 0.1)
+            aprobado = nota_final >= 60
 
+            
+            evaluacion = {
+                "camper_id": id_buscar,
+                "ruta": camper.get("ruta"),
+                "modulo": modulo,
+                "teorica": teorica,
+                "practica": practica,
+                "quices": quices,
+                "nota_final": nota_final,
+                "aprobado": aprobado,
+                "fecha": datetime.now().isoformat(),
+                "trainer": None  
+            }
+            evaluaciones.append(evaluacion)
             camper["notas"].append(nota_final)
 
-            print("Nota final:", nota_final)
-
-            if nota_final < 60:
+            
+            if not aprobado:
                 camper["riesgo"] = "Alto"
-                print("Camper en riesgo académico ⚠️")
+                camper["rendimiento"] = "Bajo"  
+                
+                print("Camper en riesgo académico ⚠️ y en rendimiento Bajo")
             else:
                 print("Módulo aprobado ✅")
 
             return
 
     print("Camper no encontrado.")
+
 
 
 
