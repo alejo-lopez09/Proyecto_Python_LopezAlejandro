@@ -15,6 +15,7 @@ campers=[{
 
 
     }]
+
 trainers=[]
 rutas = {
     "NodeJS": {
@@ -203,6 +204,7 @@ def menu_coordinador():
         print("8. Reporte por Ruta")
         print("9. Registrar Trainer")
         print("10. Registrar Matricula")
+        print("11. Estadistica de modulos")
         print("0. Volver")
 
         opcion =int(input("Seleccione: "))
@@ -227,6 +229,8 @@ def menu_coordinador():
             registrar_trainer()
         elif opcion==10:
             registrar_matricula
+        elif opcion==11:
+            estadisticas_modulos
 
         elif opcion == 0:
             break
@@ -292,40 +296,33 @@ def guardar_datos():
 
 
 def registrar_trainer():
-    id_trainer = input("ID del trainer: ")
-    nombre = input("Nombre: ")
-    password_trainer = input("Cree una contraseña para el trainer: ")
+    id_trainer = input("Ingrese ID del trainer: ")
+    nombre = input("Ingrese nombre del trainer: ")
 
+    print("Rutas disponibles:")
+    for r in rutas:
+        print("-", r)
 
-    print("Seleccione la ruta que va a entrenar:")
+    ruta = input("Seleccione una ruta: ")
+    if ruta not in rutas:
+        print("Ruta no válida")
+        return
 
-    lista_rutas = list(rutas.keys())
+    horario = input("Ingrese horario del trainer (ej: 6am-10am): ")
 
-    for i, ruta in enumerate(lista_rutas):
-        print(i + 1, ".", ruta)
-
-    opcion = int(input("Opción: "))
-
-    if 1 <= opcion <= len(lista_rutas):
-         ruta_seleccionada = lista_rutas[opcion - 1]
-    else:
-         print("Opción inválida")
-         return
-
+    password_trainer = input("Ingrese contraseña para el trainer: ")
 
     trainer = {
         "id": id_trainer,
         "nombre": nombre,
-        "ruta": ruta_seleccionada,
-        "password": password_trainer
+        "rutas": [ruta],
+        "horario": ["Lunes 6am-10am","Martes 6am-10am" "Miércoles 6am-10am", "Jueves 6am-10am", "Viernes 6am-10am"],
 
+            "password": password_trainer
     }
 
     trainers.append(trainer)
-
-    rutas[ruta_seleccionada]["trainer"] = nombre
-
-    print("Trainer asignado correctamente.")
+    print("Trainer registrado correctamente")
 
 
 
@@ -605,6 +602,39 @@ def asignar_grupo(camper_id):
     grupos.append(nuevo_grupo)
     return nuevo_grupo["numero"]
 
+
+def reporte_trainers():
+    print("--- Entrenadores registrados ---")
+    if not trainers:
+        print("No hay trainers.")
+    for t in trainers:
+        print(f"ID: {t['id']} | Nombre: {t['nombre']} | Rutas: {t.get('rutas', t.get('ruta'))}")
+
+
+def guardar_datos():
+    with open("datos.json", "w") as archivo:
+        json.dump({
+            "campers": campers,
+            "trainers": trainers,
+            "rutas": rutas,
+            "matriculas": matriculas,
+            "evaluaciones": evaluaciones,
+            "grupos": grupos
+        }, archivo, indent=4)
+
+def cargar_datos():
+    global campers, trainers, rutas, matriculas, evaluaciones, grupos
+    try:
+        with open("datos.json", "r") as archivo:
+            datos = json.load(archivo)
+            campers = datos.get("campers", campers)
+            trainers = datos.get("trainers", trainers)
+            rutas = datos.get("rutas", rutas)
+            matriculas = datos.get("matriculas", [])
+            evaluaciones = datos.get("evaluaciones", [])
+            grupos = datos.get("grupos", [])
+    except FileNotFoundError:
+        print("Archivo JSON no encontrado, se creará uno nuevo.")
 
 
 
