@@ -153,28 +153,28 @@ def menu_coordinador():
         print("9. Registrar Trainer")
         print("0. Volver")
 
-        opcion = input("Seleccione: ")
+        opcion =int(input("Seleccione: "))
 
-        if opcion == "1":
+        if opcion == 1:
             registrar_camper()
-        elif opcion == "2":
+        elif opcion == 2:
             listar_campers()
-        elif opcion == "3":
+        elif opcion == 3:
             registrar_examen()
-        elif opcion == "4":
+        elif opcion == 4:
             asignar_ruta()
-        elif opcion == "5":
+        elif opcion == 5:
             reporte_inscritos()
-        elif opcion == "6":
+        elif opcion == 6:
             reporte_aprobados()
-        elif opcion == "7":
+        elif opcion == 7:
             reporte_riesgo()
-        elif opcion == "8":
+        elif opcion == 8:
             reporte_por_ruta()
-        elif opcion == "9":
+        elif opcion == 9:
             registrar_trainer()
 
-        elif opcion == "0":
+        elif opcion == 0:
             break
         else:
             print("Opción inválida")
@@ -194,15 +194,15 @@ def menu_trainer():
                 print("3. Reporte por Camper")
                 print("0. Volver")
 
-                opcion = input("Seleccione: ")
+                opcion =int(input("Seleccione: "))
 
-                if opcion == "1":
+                if opcion == 1:
                     evaluar_modulo()
-                elif opcion == "2":
+                elif opcion == 2:
                     reporte_general()
-                elif opcion == "3":
+                elif opcion == 3:
                     reporte_camper()
-                elif opcion == "0":
+                elif opcion == 0:
                     break
                 else:
                     print("Opción inválida")
