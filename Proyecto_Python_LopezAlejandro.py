@@ -40,6 +40,8 @@ rutas = {
 matriculas={}
 evaluaciones={}
 riesgo_academico={}
+grupos = []
+
 
 
 password_coordinador = "admin123"
@@ -300,6 +302,10 @@ def asignar_ruta():
                     camper["estado"] = "Cursando"
                     rutas[ruta_elegida]["inscritos"] += 1
                     rutas[ruta_elegida]["campers"].append(camper["id"])
+                    numero_grupo = asignar_grupo(camper["id"])
+                    camper["grupo"] = numero_grupo
+                    print("Asignado al grupo:", numero_grupo)
+
 
 
                     print("Ruta asignada correctamente ✅")
@@ -456,6 +462,25 @@ def reporte_rutas():
              for camper in campers:
                  if camper["id"] == id_camper:
                      print("-", camper["nombre"], camper["apellido"])
+
+
+
+
+def asignar_grupo(camper_id):
+    for grupo in grupos:
+        if len(grupo["miembros"]) < 30:
+            grupo["miembros"].append(camper_id)
+            return grupo["numero"]
+
+    
+    nuevo_grupo = {
+        "numero": len(grupos) + 1,
+        "miembros": [camper_id]
+    }
+
+    grupos.append(nuevo_grupo)
+    return nuevo_grupo["numero"]
+
 
 
 
