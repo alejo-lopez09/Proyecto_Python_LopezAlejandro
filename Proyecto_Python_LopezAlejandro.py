@@ -286,10 +286,15 @@ def menu_camper():
     print("ID o contraseña incorrectos.")
 
 def guardar_datos():
-    with open("datos.json", "w") as archivo:
+    with open("Trainer.json", "w") as archivo_usuarios:
         json.dump({
             "campers": campers,
-            "trainers": trainers,
+            "trainers": trainers
+        }, archivo_usuarios, indent=4)
+
+    with open("datos.json", "w") as archivo:
+        json.dump({
+            
             "rutas": rutas,
             "matriculas": matriculas,
             "evaluaciones": evaluaciones,
@@ -676,16 +681,23 @@ def reporte_trainers():
 def cargar_datos():
     global campers, trainers, rutas, matriculas, evaluaciones, grupos
     try:
-        with open("datos.json", "r") as archivo:
-            datos = json.load(archivo)
-            campers = datos.get("campers", campers)
-            trainers = datos.get("trainers", trainers)
-            rutas = datos.get("rutas", rutas)
-            matriculas = datos.get("matriculas", [])
-            evaluaciones = datos.get("evaluaciones", [])
-            grupos = datos.get("grupos", [])
+        with open("Trainer.json", "r") as archivo:
+            datos_u = json.load(archivo)
+            campers = datos_u.get("campers", [])
+            trainers = datos_u.get("trainers", [])
     except FileNotFoundError:
-        print("Archivo JSON no encontrado, se creará uno nuevo.")
+        print("Archivo Trainer.json no encontrado.")
+
+
+    try:
+     with open("datos.json", "r") as archivo:
+            datos_s = json.load(archivo)
+            rutas = datos_s.get("rutas", rutas)
+            matriculas = datos_s.get("matriculas", [])
+            evaluaciones = datos_s.get("evaluaciones", [])
+            grupos = datos_s.get("grupos", [])
+    except FileNotFoundError:
+        print("Archivo datos.json no encontrado.")
 
 
 

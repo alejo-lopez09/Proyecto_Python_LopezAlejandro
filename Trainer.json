@@ -1,6 +1,6 @@
 {   "Administrador":[
-    { "Id":"Alejoskia",
-      "Nombre":"Alejo"
+    { "id":"Alejoskia",
+      "nombre":"Alejo"
       
 
     }
@@ -8,45 +8,45 @@
     "Trainer" : 
    [
   {
-    "Id": "101",
-    "Nombre": "Pedro Felipe",
-    "Ruta": ["Java", "NodeJS"],
-    "Horario": ["06:00", "18:00"]
+    "id": "101",
+    "nombre": "Pedro Felipe",
+    "ruta": ["Java", "NodeJS"],
+    "horario": ["06:00", "18:00"]
   },
   {
-    "Id": "102",
-    "Nombre": "Jolber nn",
-    "Ruta": ["Java", "NetCore"],
-    "Horario": ["06:00", "14:00"]
+    "id": "102",
+    "nombre": "Jolber nn",
+    "ruta": ["Java", "NetCore"],
+    "horario": ["06:00", "14:00"]
   },
   {
-    "Id": "103",
-    "Nombre": "Cristian Díaz",
-    "Ruta": ["Java", "NetCore"],
-    "Horario": ["10:00", "06:00"]
+    "id": "103",
+    "nombre": "Cristian Díaz",
+    "ruta": ["Java", "NetCore"],
+    "horario": ["10:00", "06:00"]
   },
   {
-    "Id": "104",
-    "Nombre": "Edwin Salas",
-    "Ruta": ["Java", "NetCore"],
-    "Horario": ["06:00", "14:00"]
+    "id": "104",
+    "nombre": "Edwin Salas",
+    "ruta": ["Java", "NetCore"],
+    "horario": ["06:00", "14:00"]
   },
   {
-    "Id": "105",
-    "Nombre": "Carlos",
-    "Ruta": ["NodeJS"],
-    "Horario": ["14:00", "22:00"]
+    "id": "105",
+    "nombre": "Carlos",
+    "ruta": ["NodeJS"],
+    "horario": ["14:00", "22:00"]
   },
   {
-    "Id": "106",
-    "Nombre": "Adriana Torres",
-    "Ruta": ["Java"],
-    "Horario": ["08:00", "12:00"]
+    "id": "106",
+    "nombre": "Adriana Torres",
+    "ruta": ["Java"],
+    "horario": ["08:00", "12:00"]
   },
   {
-    "Id": "107",
-    "Nombre": "Mauricio Gómez",
-    "Ruta": ["NetCore", "NodeJS"],
+    "id": "107",
+    "nombre": "Mauricio Gómez",
+    "ruta": ["NetCore", "NodeJS"],
     "Horario": ["14:00", "18:00"]
   }
 ],
