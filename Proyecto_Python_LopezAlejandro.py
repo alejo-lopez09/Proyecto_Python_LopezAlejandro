@@ -200,12 +200,13 @@ def menu_coordinador():
         print("4. Asignar Ruta")
         print("5. Crear ruta")
         print("6. Reporte Inscritos")
-        print("7. Reporte Aprobados")
-        print("8. Reporte Riesgo")
-        print("9. Reporte por Ruta")
-        print("10. Registrar Trainer")
-        print("11. Registrar Matricula")
-        print("12. Estadistica de modulos")
+        print("7. Reporte Trainers")
+        print("8. Reporte Aprobados")
+        print("9. Reporte Riesgo")
+        print("10. Reporte por Ruta")
+        print("11. Registrar Trainer")
+        print("12. Registrar Matricula")
+        print("13. Estadistica de modulos")
         print("0. Volver")
 
         opcion =int(input("Seleccione: "))
@@ -222,17 +223,21 @@ def menu_coordinador():
             crear_ruta()
         elif opcion == 6:
             reporte_inscritos()
-        elif opcion == 7:
-            reporte_aprobados()
+        elif opcion==7:
+            reporte_trainers()
+
+            
         elif opcion == 8:
-            reporte_riesgo()
+            reporte_aprobados()
         elif opcion == 9:
-            reporte_por_ruta()
+            reporte_riesgo()
         elif opcion == 10:
+            reporte_por_ruta()
+        elif opcion == 11:
             registrar_trainer()
-        elif opcion==11:
-            registrar_matricula()
         elif opcion==12:
+            registrar_matricula()
+        elif opcion==13:
             estadisticas_modulos()
 
         elif opcion == 0:
@@ -373,8 +378,8 @@ def registrar_examen():
 
 def crear_ruta():
     nombre = input("Nombre ruta: ")
-    sgdb_principal = input("SGDB principal: ")
-    sgdb_alterno = input("SGDB alterno: ")
+    base_datos_principal = input("SGDB principal: ")
+    base_datos_alterna = input("SGDB alterno: ")
     modulos = []
     print("Ingrese módulos (enter vacío para terminar):")
     while True:
@@ -386,8 +391,8 @@ def crear_ruta():
         "inscritos": 0,
         "trainer": None,
         "campers": [],
-        "sgdb_principal": sgdb_principal,
-        "sgdb_alterno": sgdb_alterno,
+        "base_datos_principal": base_datos_principal,
+        "base_datos_alterno": base_datos_alterna,
         "modulos": modulos
     }
     print("Ruta creada.")
@@ -395,45 +400,59 @@ def crear_ruta():
 
 
 def asignar_ruta():
-    id_buscar = input("Ingrese ID del camper: ")
+    print("\n--- ASIGNACIÓN DE RUTA ---")
+    id_buscar = input("Ingrese el ID del camper aprobado: ")
 
-    for camper in campers:
-        if camper["id"] == id_buscar:
+    
+    camper = next((c for c in campers if c["id"] == id_buscar), None)
 
-            if camper["estado"] != "Aprobado":
-                print("El camper no ha aprobado el examen inicial.")
-                return
+    if not camper:
+        print("❌ Error: El ID ingresado no coincide con ningún camper registrado.")
+        return
 
-            print("Rutas disponibles:")
-            for nombre in rutas:
-                print("-", nombre)
+    # REQUERIMIENTO: Solo campers que pasaron de "Inscritos" a "Aprobados"
+    if camper["estado"] != "Aprobado":
+        print(f"❌ Error: El camper '{camper['nombre']}' tiene estado '{camper['estado']}'.")
+        print("Solo los campers con estado 'Aprobado' pueden ser asignados a una ruta.")
+        return
 
-            ruta_elegida = input("Seleccione la ruta: ")
+    # Listar rutas creadas para que el usuario elija
+    print("\n--- Rutas Disponibles ---")
+    if not rutas:
+        print("No hay rutas creadas actualmente.")
+        return
+        
+    for nombre, info in rutas.items():
+       
+        cupos_libres = info["capacidad"] - info["inscritos"]
+        print(f"- {nombre} | Cupos disponibles: {cupos_libres}/33")
 
-            if ruta_elegida in rutas:
+    ruta_elegida = input("\nNombre de la ruta a asignar: ")
 
-                if rutas[ruta_elegida]["inscritos"] < rutas[ruta_elegida]["capacidad"]:
-
-                    camper["ruta"] = ruta_elegida
-                    camper["estado"] = "Cursando"
-                    rutas[ruta_elegida]["inscritos"] += 1
-                    rutas[ruta_elegida]["campers"].append(camper["id"])
-                    numero_grupo = asignar_grupo(camper["id"])
-                    camper["grupo"] = numero_grupo
-                    print("Asignado al grupo:", numero_grupo)
-
-
-
-                    print("Ruta asignada correctamente ✅")
-
-                else:
-                    print("La ruta está llena ❌")
-            else:
-                print("Ruta no válida")
-
-            return
-
-    print("Camper no encontrado.")
+    if ruta_elegida in rutas:
+        info_ruta = rutas[ruta_elegida]
+        
+        # Validación de capacidad
+        if info_ruta["inscritos"] < info_ruta["capacidad"]:
+            
+            # 1. Actualizar datos del camper
+            camper["ruta"] = ruta_elegida
+            camper["estado"] = "Cursando" 
+            
+            # 2. Actualizar datos de la ruta
+            info_ruta["inscritos"] += 1
+            info_ruta["campers"].append(camper["id"])
+            
+            # 3. Asignación de grupo 
+            numero_grupo = asignar_grupo(camper["id"])
+            camper["grupo"] = numero_grupo
+            
+            print(f"✅ ¡Éxito! El camper {camper['nombre']} ha sido asignado a la {ruta_elegida}.")
+            print(f"Asignado al Grupo: {numero_grupo}")
+        else:
+            print(f"❌ Error: La ruta '{ruta_elegida}' ya alcanzó su capacidad máxima de 33.")
+    else:
+        print("❌ Error: La ruta seleccionada no existe.")
 
 
 
