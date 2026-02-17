@@ -311,7 +311,20 @@ def registrar_trainer():
         print("Ruta no válida")
         return
 
-    horario = input("Ingrese horario del trainer (ej: 6am-10am): ")
+    horario_trainer = input("Ingrese horario (formato HH:MM-HH:MM): ")
+
+    try:
+     inicio_str, fin_str = horario_trainer.split("-")
+     inicio = convertir_Hora_a_Minutos(inicio_str)
+     fin = convertir_Hora_a_Minutos(fin_str)
+
+     if fin - inicio != 240:  
+        print("El horario debe ser de 4 horas exactas.")
+        return
+    except:
+     print("Formato inválido.")
+     return
+
 
     password_trainer = input("Ingrese contraseña para el trainer: ")
 
@@ -320,7 +333,7 @@ def registrar_trainer():
         "nombre": nombre,
         "rutas": [ruta],
         "horario": ["Lunes 6am-10am","Martes 6am-10am" ,"Miércoles 6am-10am", "Jueves 6am-10am", "Viernes 6am-10am"],
-
+        "horario": [horario_trainer],
             "password": password_trainer
     }
 
@@ -369,7 +382,7 @@ def crear_ruta():
         if not m: break
         modulos.append(m)
     rutas[nombre] = {
-        "capacidad": 33,
+        "capacidad": 30,
         "inscritos": 0,
         "trainer": None,
         "campers": [],
@@ -664,7 +677,12 @@ def cargar_datos():
 
 
 
+def convertir_Hora_a_Minutos(hora_str):
+    hora, minuto = map(int, hora_str.split(":"))
+    return hora * 60 + minuto
 
+def hay_Cruze_Horario(inicio1, fin1, inicio2, fin2):
+    return max(inicio1, inicio2) < min(fin1, fin2)
 
 
 
