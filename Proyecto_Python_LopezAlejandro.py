@@ -19,19 +19,19 @@ campers=[{
 trainers=[]
 rutas = {
     "NodeJS": {
-        "capacidad": 3,
+        "capacidad": 30,
         "inscritos": 0,
         "trainer": None,
         "campers": []
     },
     "Java": {
-        "capacidad": 3,
+        "capacidad": 30,
         "inscritos": 0,
         "trainer": None,
         "campers": []
     },
     "NetCore": {
-        "capacidad": 3,
+        "capacidad": 30,
         "inscritos": 0,
         "trainer": None,
         "campers": []
@@ -198,13 +198,14 @@ def menu_coordinador():
         print("2. Listar Campers")
         print("3. Registrar Examen Inicial")
         print("4. Asignar Ruta")
-        print("5. Reporte Inscritos")
-        print("6. Reporte Aprobados")
-        print("7. Reporte Riesgo")
-        print("8. Reporte por Ruta")
-        print("9. Registrar Trainer")
-        print("10. Registrar Matricula")
-        print("11. Estadistica de modulos")
+        print("5. Crear ruta")
+        print("6. Reporte Inscritos")
+        print("7. Reporte Aprobados")
+        print("8. Reporte Riesgo")
+        print("9. Reporte por Ruta")
+        print("10. Registrar Trainer")
+        print("11. Registrar Matricula")
+        print("12. Estadistica de modulos")
         print("0. Volver")
 
         opcion =int(input("Seleccione: "))
@@ -217,19 +218,21 @@ def menu_coordinador():
             registrar_examen()
         elif opcion == 4:
             asignar_ruta()
-        elif opcion == 5:
-            reporte_inscritos()
+        elif opcion==5:
+            crear_ruta()
         elif opcion == 6:
-            reporte_aprobados()
+            reporte_inscritos()
         elif opcion == 7:
-            reporte_riesgo()
+            reporte_aprobados()
         elif opcion == 8:
-            reporte_por_ruta()
+            reporte_riesgo()
         elif opcion == 9:
+            reporte_por_ruta()
+        elif opcion == 10:
             registrar_trainer()
-        elif opcion==10:
-            registrar_matricula()
         elif opcion==11:
+            registrar_matricula()
+        elif opcion==12:
             estadisticas_modulos()
 
         elif opcion == 0:
@@ -353,6 +356,29 @@ def registrar_examen():
 
     if not encontrado:
         print("Camper no encontrado.")
+
+
+def crear_ruta():
+    nombre = input("Nombre ruta: ")
+    sgdb_principal = input("SGDB principal: ")
+    sgdb_alterno = input("SGDB alterno: ")
+    modulos = []
+    print("Ingrese módulos (enter vacío para terminar):")
+    while True:
+        m = input("Módulo: ")
+        if not m: break
+        modulos.append(m)
+    rutas[nombre] = {
+        "capacidad": 33,
+        "inscritos": 0,
+        "trainer": None,
+        "campers": [],
+        "sgdb_principal": sgdb_principal,
+        "sgdb_alterno": sgdb_alterno,
+        "modulos": modulos
+    }
+    print("Ruta creada.")
+
 
 
 def asignar_ruta():
