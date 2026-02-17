@@ -1,9 +1,29 @@
-[
-    {
-    "Id":"101",
-    "Nombre":"Pedro Felipe",
-    "Ruta":["Java","NodeJS"],
-    "Horario":["6:00","18:00"]
-    }
+{   "Administrador":[
+    { "Id":"Alejoskia",
+      "Nombre":"Alejo"
+      
 
-]
+    }
+    ],
+    "Trainer" : [
+    {
+        "Id":"101",
+        "Nombre":"Pedro Felipe",
+        "Ruta":["Java","NodeJS"],
+        "Horario":["6:00","18:00"]
+    }
+    ],
+    "campers":[{"id":"1115187651",
+    "nombre":"alejo",
+    "apellido":"lopez",
+    "direccion":"calle 1a #11-40",
+    "acudiente":"viviana",
+    "telefono_cel":3207895300,
+    "telefono_fijo":3137659601,
+    "estado":"inscrito",
+    "riesgo":"Bajo",
+    "notas": [],
+    "password":"123456"}
+
+    ]
+}
