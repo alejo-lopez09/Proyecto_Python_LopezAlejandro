@@ -16,7 +16,8 @@ campers=[{
 
     }]
 
-trainers=[]
+trainers=[
+]
 rutas = {
     "NodeJS": {
         "capacidad": 30,
@@ -107,7 +108,7 @@ def cargar_datos():
             trainers = datos["trainers"]
             rutas = datos["rutas"]
     except FileNotFoundError:
-        print("Archivo JSON no encontrado, se creará uno nuevo.")
+        print("Archivo JSON no encontrado, se creara uno nuevo.")
 
 from datetime import datetime
 
@@ -304,46 +305,54 @@ def guardar_datos():
 
 
 def registrar_trainer():
-    id_trainer = input("Ingrese ID del trainer: ")
-    nombre = input("Ingrese nombre del trainer: ")
+    print("--- REGISTRO DE NUEVO TRAINER ---")
+    id_t = input("ID del trainer: ")
+    nombre = input("Nombre completo: ")
+    
+    
+    rutas_trainer = []
+    print("Ingrese las rutas que maneja el trainer (presione Enter vacío para terminar):")
+    while True:
+        r = input("- Ruta: ")
+        if not r: 
+            break
+        # Validamos que la ruta exista en nuestro sistema
+        if r in rutas:
+            rutas_trainer.append(r)
+        else:
+            print(f" La ruta '{r}' no existe en el sistema. Intente con: {list(rutas.keys())}")
 
-    print("Rutas disponibles:")
-    for r in rutas:
-        print("-", r)
-
-    ruta = input("Seleccione una ruta: ")
-    if ruta not in rutas:
-        print("Ruta no válida")
-        return
-
-    horario_trainer = input("Ingrese horario (formato HH:MM-HH:MM): ")
-
+    # Registro de horario flexible
+    print("Defina el horario (Formato HH:MM, ej: 06:00-18:00):")
+    horario_str = input("Horario: ")
+    
     try:
-     inicio_str, fin_str = horario_trainer.split("-")
-     inicio = convertir_Hora_a_Minutos(inicio_str)
-     fin = convertir_Hora_a_Minutos(fin_str)
+        h_inicio, h_fin = horario_str.split("-")
+        inicio = convertir_Hora_a_Minutos(h_inicio)
+        fin = convertir_Hora_a_Minutos(h_fin)
+        
+        # Ahora solo validamos que la hora final sea después de la inicial
+        if fin <= inicio:
+         print("❌ Error: La hora de finalización debe ser posterior a la de inicio.")
+         return
 
-     if fin - inicio != 240:  
-        print("El horario debe ser de 4 horas exactas.")
-        return
-    except:
-     print("Formato inválido.")
-     return
-
-
-    password_trainer = input("Ingrese contraseña para el trainer: ")
-
-    trainer = {
-        "id": id_trainer,
-        "nombre": nombre,
-        "rutas": [ruta],
-        "horario": ["Lunes 6am-10am","Martes 6am-10am" ,"Miércoles 6am-10am", "Jueves 6am-10am", "Viernes 6am-10am"],
-        "horario": [horario_trainer],
-            "password": password_trainer
-    }
-
-    trainers.append(trainer)
-    print("Trainer registrado correctamente")
+        # Creamos el perfil del trainer
+        nuevo_trainer = {
+            "id": id_t,
+            "nombre": nombre,
+            "rutas": rutas_trainer,
+            "horario": {
+                "texto": horario_str,
+                "inicio_min": inicio,
+                "fin_min": fin
+            }
+        }
+        
+        trainers.append(nuevo_trainer)
+        print(f"✅ Trainer {nombre} registrado con éxito con {len(rutas_trainer)} rutas.")
+        
+    except ValueError:
+        print("❌ Error: Formato de horario inválido. Use HH:MM-HH:MM")
 
 
 
@@ -400,7 +409,7 @@ def crear_ruta():
 
 
 def asignar_ruta():
-    print("\n--- ASIGNACIÓN DE RUTA ---")
+    print("--- ASIGNACIÓN DE RUTA ---")
     id_buscar = input("Ingrese el ID del camper aprobado: ")
 
     
@@ -713,5 +722,6 @@ def hay_Cruze_Horario(inicio1, fin1, inicio2, fin2):
 
 if __name__ == "__main__":
     cargar_datos()
+    
     menu_principal()
     guardar_datos()
