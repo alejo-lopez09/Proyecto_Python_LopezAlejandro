@@ -300,7 +300,10 @@ def guardar_datos():
         json.dump({
             "campers": campers,
             "trainers": trainers,
-            "rutas": rutas
+            "rutas": rutas,
+            "matriculas": matriculas,
+            "evaluaciones": evaluaciones,
+            "grupos": grupos
         }, archivo, indent=4)
 
 
@@ -678,16 +681,7 @@ def reporte_trainers():
         print(f"ID: {t['id']} | Nombre: {t['nombre']} | Rutas: {t.get('rutas', t.get('ruta'))}")
 
 
-def guardar_datos():
-    with open("datos.json", "w") as archivo:
-        json.dump({
-            "campers": campers,
-            "trainers": trainers,
-            "rutas": rutas,
-            "matriculas": matriculas,
-            "evaluaciones": evaluaciones,
-            "grupos": grupos
-        }, archivo, indent=4)
+
 
 def cargar_datos():
     global campers, trainers, rutas, matriculas, evaluaciones, grupos

@@ -1,0 +1,9 @@
+[
+    {
+    "Id":"101",
+    "Nombre":"Pedro Felipe",
+    "Ruta":["Java","NodeJS"],
+    "Horario":["6:00","18:00"]
+    }
+
+]
