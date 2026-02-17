@@ -98,17 +98,7 @@ def listar_campers():
             print("Riesgo:", camper["riesgo"])
 
 
-def cargar_datos():
-    global campers, trainers, rutas
 
-    try:
-        with open("datos.json", "r") as archivo:
-            datos = json.load(archivo)
-            campers = datos["campers"]
-            trainers = datos["trainers"]
-            rutas = datos["rutas"]
-    except FileNotFoundError:
-        print("Archivo JSON no encontrado, se creara uno nuevo.")
 
 from datetime import datetime
 
