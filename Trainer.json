@@ -5,7 +5,8 @@
 
     }
     ],
-    "Trainer" : [
+    "Trainer" : 
+    [
     {
         "Id":"101",
         "Nombre":"Pedro Felipe",
@@ -13,7 +14,10 @@
         "Horario":["6:00","18:00"]
     }
     ],
-    "campers":[{"id":"1115187651",
+    "campers":
+    [
+    {
+    "id":"1115187651",
     "nombre":"alejo",
     "apellido":"lopez",
     "direccion":"calle 1a #11-40",
@@ -23,7 +27,8 @@
     "estado":"inscrito",
     "riesgo":"Bajo",
     "notas": [],
-    "password":"123456"}
+    "password":"123456"
+    }
 
     ]
 }
