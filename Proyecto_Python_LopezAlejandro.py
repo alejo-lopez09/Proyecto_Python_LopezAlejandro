@@ -264,6 +264,6 @@ def cargar_datos():
 # ejecucion de codigo
 #=======================
 if __name__ == "__main__":
-            cargar_datos()
+    cargar_datos()
     menu_principal()
     guardar_datos()
