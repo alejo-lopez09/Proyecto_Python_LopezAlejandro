@@ -227,16 +227,6 @@ def asignar_grupo(camper_id):
     grupos.append(nuevo_grupo)
     return nuevo_grupo["numero"]
 
-def guardar_datos():
-    booleanito=True
-    while booleanito==True:
-        with open("Campus.json", "w") as archivo_usuarios:
-            json.dump({
-                print("a")
-                
-            }, archivo_usuarios, indent=4)
-        print ("Se guardo correctamente!!!!")
-        booleanito=False
 
 def cargar_datos():
     global campers, trainers, rutas, matriculas, evaluaciones, grupos
