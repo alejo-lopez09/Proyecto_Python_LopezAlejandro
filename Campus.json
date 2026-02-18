@@ -1,0 +1,641 @@
+{
+    "rutas": {
+        "Java": {
+            "capacidad": 33,
+            "inscritos": [],
+            "trainers": [
+                "101",
+                "102",
+                "103",
+                "104",
+                "105",
+                "106"
+            ]
+        },
+        "NodeJS": {
+            "capacidad": 33,
+            "inscritos": [],
+            "trainers": [
+                "101"
+            ]
+        },
+        "NetCore": {
+            "capacidad": 33,
+            "inscritos": [],
+            "trainers": [
+                "102",
+                "103",
+                "104",
+                "107"
+            ]
+        }
+    },
+    "Administrador": [
+        {
+            "id": "Alejoskia",
+            "nombre": "Alejo"
+        }
+    ],
+    "Trainer": [
+        {
+            "id": "101",
+            "nombre": "Pedro Felipe",
+            "ruta": [
+                "Java",
+                "NodeJS"
+            ],
+            "horario": [
+                "06:00",
+                "18:00"
+            ]
+        },
+        {
+            "id": "102",
+            "nombre": "Jolber nn",
+            "ruta": [
+                "Java",
+                "NetCore"
+            ],
+            "horario": [
+                "06:00",
+                "14:00"
+            ]
+        },
+        {
+            "id": "103",
+            "nombre": "Cristian Díaz",
+            "ruta": [
+                "Java",
+                "NetCore"
+            ],
+            "horario": [
+                "10:00",
+                "06:00"
+            ]
+        },
+        {
+            "id": "104",
+            "nombre": "Edwin Salas",
+            "ruta": [
+                "Java",
+                "NetCore"
+            ],
+            "horario": [
+                "06:00",
+                "14:00"
+            ]
+        },
+        {
+            "id": "105",
+            "nombre": "Carlos",
+            "ruta": [
+                "NodeJS"
+            ],
+            "horario": [
+                "14:00",
+                "22:00"
+            ]
+        },
+        {
+            "id": "106",
+            "nombre": "Adriana Torres",
+            "ruta": [
+                "Java"
+            ],
+            "horario": [
+                "08:00",
+                "12:00"
+            ]
+        },
+        {
+            "id": "107",
+            "nombre": "Mauricio Gómez",
+            "ruta": [
+                "NetCore",
+                "NodeJS"
+            ],
+            "Horario": [
+                "14:00",
+                "18:00"
+            ]
+        }
+    ],
+    "campers": [
+        {
+            "id": "61",
+            "nombre": "Juan",
+            "apellido": "Perez",
+            "direccion": "Calle 10 #15-22",
+            "acudiente": "Maria Perez",
+            "telefono_cel": "3004567812",
+            "telefono_fijo": "6013452211",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 72,
+            "nota_proyecto": 75,
+            "nota_quiz": 70,
+            "password": "d"
+        },
+        {
+            "id": "62",
+            "nombre": "Laura",
+            "apellido": "Gomez",
+            "direccion": "Cra 8 #20-11",
+            "acudiente": "Carlos Gomez",
+            "telefono_cel": "3115678923",
+            "telefono_fijo": "6014563322",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 85,
+            "nota_proyecto": 80,
+            "nota_quiz": 82,
+            "password": "d"
+        },
+        {
+            "id": "63",
+            "nombre": "Andres",
+            "apellido": "Rodriguez",
+            "direccion": "Calle 45 #12-09",
+            "acudiente": "Luisa Rodriguez",
+            "telefono_cel": "3026789034",
+            "telefono_fijo": "6015674433",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 66,
+            "nota_proyecto": 68,
+            "nota_quiz": 70,
+            "password": "d"
+        },
+        {
+            "id": "64",
+            "nombre": "Camila",
+            "apellido": "Martinez",
+            "direccion": "Cra 15 #30-18",
+            "acudiente": "Jorge Martinez",
+            "telefono_cel": "3137890145",
+            "telefono_fijo": "6016785544",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 90,
+            "nota_proyecto": 92,
+            "nota_quiz": 88,
+            "password": "d"
+        },
+        {
+            "id": "65",
+            "nombre": "Sebastian",
+            "apellido": "Lopez",
+            "direccion": "Calle 22 #5-44",
+            "acudiente": "Ana Lopez",
+            "telefono_cel": "3048901256",
+            "telefono_fijo": "6017896655",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 74,
+            "nota_proyecto": 73,
+            "nota_quiz": 76,
+            "password": "d"
+        },
+        {
+            "id": "66",
+            "nombre": "Valentina",
+            "apellido": "Hernandez",
+            "direccion": "Cra 9 #18-77",
+            "acudiente": "Pedro Hernandez",
+            "telefono_cel": "3159012367",
+            "telefono_fijo": "6018907766",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 81,
+            "nota_proyecto": 83,
+            "nota_quiz": 80,
+            "password": "d"
+        },
+        {
+            "id": "67",
+            "nombre": "Daniel",
+            "apellido": "Ramirez",
+            "direccion": "Calle 60 #14-33",
+            "acudiente": "Rosa Ramirez",
+            "telefono_cel": "3060123478",
+            "telefono_fijo": "6019018877",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 69,
+            "nota_proyecto": 71,
+            "nota_quiz": 72,
+            "password": "d"
+        },
+        {
+            "id": "68",
+            "nombre": "Sofia",
+            "apellido": "Torres",
+            "direccion": "Cra 3 #40-12",
+            "acudiente": "Miguel Torres",
+            "telefono_cel": "3171234589",
+            "telefono_fijo": "6011129988",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 88,
+            "nota_proyecto": 87,
+            "nota_quiz": 89,
+            "password": "d"
+        },
+        {
+            "id": "69",
+            "nombre": "Mateo",
+            "apellido": "Flores",
+            "direccion": "Calle 70 #25-16",
+            "acudiente": "Claudia Flores",
+            "telefono_cel": "3082345690",
+            "telefono_fijo": "6012231099",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 62,
+            "nota_proyecto": 65,
+            "nota_quiz": 63,
+            "password": "d"
+        },
+        {
+            "id": "70",
+            "nombre": "Isabella",
+            "apellido": "Diaz",
+            "direccion": "Cra 12 #55-21",
+            "acudiente": "Fernando Diaz",
+            "telefono_cel": "3193456701",
+            "telefono_fijo": "6013342100",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 95,
+            "nota_proyecto": 93,
+            "nota_quiz": 94,
+            "password": "d"
+        },
+        {
+            "id": "71",
+            "nombre": "Nicolas",
+            "apellido": "Castro",
+            "direccion": "Calle 5 #11-66",
+            "acudiente": "Sandra Castro",
+            "telefono_cel": "3004567823",
+            "telefono_fijo": "6014453211",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 77,
+            "nota_proyecto": 79,
+            "nota_quiz": 78,
+            "password": "d"
+        },
+        {
+            "id": "72",
+            "nombre": "Gabriela",
+            "apellido": "Ortiz",
+            "direccion": "Cra 20 #9-31",
+            "acudiente": "Diego Ortiz",
+            "telefono_cel": "3115678934",
+            "telefono_fijo": "6015564322",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 84,
+            "nota_proyecto": 82,
+            "nota_quiz": 83,
+            "password": "d"
+        },
+        {
+            "id": "73",
+            "nombre": "Felipe",
+            "apellido": "Morales",
+            "direccion": "Calle 33 #44-55",
+            "acudiente": "Patricia Morales",
+            "telefono_cel": "3026789045",
+            "telefono_fijo": "6016675433",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 68,
+            "nota_proyecto": 69,
+            "nota_quiz": 70,
+            "password": "d"
+        },
+        {
+            "id": "74",
+            "nombre": "Mariana",
+            "apellido": "Vargas",
+            "direccion": "Cra 6 #27-18",
+            "acudiente": "Ricardo Vargas",
+            "telefono_cel": "3137890156",
+            "telefono_fijo": "6017786544",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 91,
+            "nota_proyecto": 90,
+            "nota_quiz": 92,
+            "password": "d"
+        },
+        {
+            "id": "75",
+            "nombre": "David",
+            "apellido": "Suarez",
+            "direccion": "Calle 14 #8-99",
+            "acudiente": "Gloria Suarez",
+            "telefono_cel": "3048901267",
+            "telefono_fijo": "6018897655",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 73,
+            "nota_proyecto": 72,
+            "nota_quiz": 74,
+            "password": "d"
+        },
+        {
+            "id": "76",
+            "nombre": "Paula",
+            "apellido": "Rojas",
+            "direccion": "Cra 11 #60-13",
+            "acudiente": "Hector Rojas",
+            "telefono_cel": "3159012378",
+            "telefono_fijo": "6019908766",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 86,
+            "nota_proyecto": 88,
+            "nota_quiz": 87,
+            "password": "d"
+        },
+        {
+            "id": "77",
+            "nombre": "Jorge",
+            "apellido": "Mendez",
+            "direccion": "Calle 90 #1-20",
+            "acudiente": "Lucia Mendez",
+            "telefono_cel": "3060123489",
+            "telefono_fijo": "6011019877",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 64,
+            "nota_proyecto": 66,
+            "nota_quiz": 65,
+            "password": "d"
+        },
+        {
+            "id": "78",
+            "nombre": "Alejandra",
+            "apellido": "Cruz",
+            "direccion": "Cra 30 #22-45",
+            "acudiente": "Oscar Cruz",
+            "telefono_cel": "3171234590",
+            "telefono_fijo": "6012120988",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 89,
+            "nota_proyecto": 90,
+            "nota_quiz": 88,
+            "password": "d"
+        },
+        {
+            "id": "79",
+            "nombre": "Oscar",
+            "apellido": "Reyes",
+            "direccion": "Calle 41 #19-37",
+            "acudiente": "Teresa Reyes",
+            "telefono_cel": "3082345601",
+            "telefono_fijo": "6013231099",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 71,
+            "nota_proyecto": 73,
+            "nota_quiz": 72,
+            "password": "d"
+        },
+        {
+            "id": "80",
+            "nombre": "Daniela",
+            "apellido": "Navarro",
+            "direccion": "Cra 18 #13-28",
+            "acudiente": "Raul Navarro",
+            "telefono_cel": "3193456712",
+            "telefono_fijo": "6014342100",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 93,
+            "nota_proyecto": 94,
+            "nota_quiz": 92,
+            "password": "d"
+        },
+        {
+            "id": "81",
+            "nombre": "Luis",
+            "apellido": "Pardo",
+            "direccion": "Calle 55 #24-12",
+            "acudiente": "Elena Pardo",
+            "telefono_cel": "3004567834",
+            "telefono_fijo": "6015453211",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 60,
+            "nota_proyecto": 63,
+            "nota_quiz": 62,
+            "password": "d"
+        },
+        {
+            "id": "82",
+            "nombre": "Carolina",
+            "apellido": "Acosta",
+            "direccion": "Cra 25 #17-61",
+            "acudiente": "Mario Acosta",
+            "telefono_cel": "3115678945",
+            "telefono_fijo": "6016564322",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 82,
+            "nota_proyecto": 81,
+            "nota_quiz": 83,
+            "password": "d"
+        },
+        {
+            "id": "83",
+            "nombre": "Sergio",
+            "apellido": "Guerrero",
+            "direccion": "Calle 2 #3-14",
+            "acudiente": "Julia Guerrero",
+            "telefono_cel": "3026789056",
+            "telefono_fijo": "6017675433",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 76,
+            "nota_proyecto": 75,
+            "nota_quiz": 77,
+            "password": "d"
+        },
+        {
+            "id": "84",
+            "nombre": "Natalia",
+            "apellido": "Peña",
+            "direccion": "Cra 7 #70-45",
+            "acudiente": "Alberto Peña",
+            "telefono_cel": "3137890167",
+            "telefono_fijo": "6018786544",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 88,
+            "nota_proyecto": 86,
+            "nota_quiz": 87,
+            "password": "d"
+        },
+        {
+            "id": "85",
+            "nombre": "Ricardo",
+            "apellido": "Soto",
+            "direccion": "Calle 39 #28-30",
+            "acudiente": "Marta Soto",
+            "telefono_cel": "3048901278",
+            "telefono_fijo": "6019897655",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 67,
+            "nota_proyecto": 69,
+            "nota_quiz": 68,
+            "password": "d"
+        },
+        {
+            "id": "86",
+            "nombre": "Juliana",
+            "apellido": "Leon",
+            "direccion": "Cra 4 #52-17",
+            "acudiente": "Ramon Leon",
+            "telefono_cel": "3159012389",
+            "telefono_fijo": "6010908766",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 94,
+            "nota_proyecto": 95,
+            "nota_quiz": 93,
+            "password": "d"
+        },
+        {
+            "id": "87",
+            "nombre": "Fernando",
+            "apellido": "Campos",
+            "direccion": "Calle 27 #6-21",
+            "acudiente": "Silvia Campos",
+            "telefono_cel": "3060123490",
+            "telefono_fijo": "6011019876",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 72,
+            "nota_proyecto": 74,
+            "nota_quiz": 73,
+            "password": "d"
+        },
+        {
+            "id": "88",
+            "nombre": "Diana",
+            "apellido": "Vega",
+            "direccion": "Cra 40 #10-10",
+            "acudiente": "Pablo Vega",
+            "telefono_cel": "3171234501",
+            "telefono_fijo": "6012120987",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 85,
+            "nota_proyecto": 84,
+            "nota_quiz": 86,
+            "password": "d"
+        },
+        {
+            "id": "89",
+            "nombre": "Hugo",
+            "apellido": "Ibarra",
+            "direccion": "Calle 18 #36-29",
+            "acudiente": "Lina Ibarra",
+            "telefono_cel": "3082345612",
+            "telefono_fijo": "6013231098",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 63,
+            "nota_proyecto": 64,
+            "nota_quiz": 65,
+            "password": "d"
+        },
+        {
+            "id": "90",
+            "nombre": "Tatiana",
+            "apellido": "Cortes",
+            "direccion": "Cra 21 #41-13",
+            "acudiente": "Diego Cortes",
+            "telefono_cel": "3193456723",
+            "telefono_fijo": "6014342109",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 92,
+            "nota_proyecto": 91,
+            "nota_quiz": 93,
+            "password": "d"
+        },
+        {
+            "id": "91",
+            "nombre": "Andrés",
+            "apellido": "Mendoza",
+            "direccion": "Cra 12 #25-33",
+            "acudiente": "María Mendoza",
+            "telefono_cel": "3005678901",
+            "telefono_fijo": "6015453212",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 78,
+            "nota_proyecto": 79,
+            "nota_quiz": 77,
+            "password": "d"
+        },
+        {
+            "id": "34",
+            "nombre": "kamila",
+            "apellido": "sanchez",
+            "direccion": "2233",
+            "acudiente": "2112",
+            "telefono_cel": "3",
+            "telefono_fijo": "132",
+            "estado": "inscrito",
+            "riesgo": "Bajo",
+            "nota_examen": 70,
+            "nota_proyecto": 80,
+            "nota_quiz": 75,
+            "password": "132"
+        }
+    ],
+
+    "matriculas": 
+[
+    {"camper_id":"61","trainer_id":"101","ruta":"Java","hora":"06:00-10:00","salon":"A1","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"62","trainer_id":"101","ruta":"NodeJS","hora":"10:00-14:00","salon":"A2","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"63","trainer_id":"102","ruta":"NetCore","hora":"14:00-18:00","salon":"A3","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"64","trainer_id":"103","ruta":"Java","hora":"06:00-10:00","salon":"A4","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"65","trainer_id":"101","ruta":"NodeJS","hora":"10:00-14:00","salon":"A5","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"66","trainer_id":"104","ruta":"NetCore","hora":"14:00-18:00","salon":"A1","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"67","trainer_id":"105","ruta":"Java","hora":"06:00-10:00","salon":"A2","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"68","trainer_id":"101","ruta":"NodeJS","hora":"10:00-14:00","salon":"A3","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"69","trainer_id":"102","ruta":"NetCore","hora":"14:00-18:00","salon":"A4","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"70","trainer_id":"106","ruta":"Java","hora":"06:00-10:00","salon":"A5","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"71","trainer_id":"101","ruta":"NodeJS","hora":"10:00-14:00","salon":"A1","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"72","trainer_id":"103","ruta":"NetCore","hora":"14:00-18:00","salon":"A2","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"73","trainer_id":"104","ruta":"Java","hora":"06:00-10:00","salon":"A3","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"74","trainer_id":"101","ruta":"NodeJS","hora":"10:00-14:00","salon":"A4","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"75","trainer_id":"107","ruta":"NetCore","hora":"14:00-18:00","salon":"A5","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"76","trainer_id":"105","ruta":"Java","hora":"06:00-10:00","salon":"A1","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"77","trainer_id":"101","ruta":"NodeJS","hora":"10:00-14:00","salon":"A2","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"78","trainer_id":"102","ruta":"NetCore","hora":"14:00-18:00","salon":"A3","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"79","trainer_id":"106","ruta":"Java","hora":"06:00-10:00","salon":"A4","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"80","trainer_id":"101","ruta":"NodeJS","hora":"10:00-14:00","salon":"A5","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"81","trainer_id":"104","ruta":"NetCore","hora":"14:00-18:00","salon":"A1","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"82","trainer_id":"103","ruta":"Java","hora":"06:00-10:00","salon":"A2","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"83","trainer_id":"101","ruta":"NodeJS","hora":"10:00-14:00","salon":"A3","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"84","trainer_id":"102","ruta":"NetCore","hora":"14:00-18:00","salon":"A4","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"85","trainer_id":"105","ruta":"Java","hora":"06:00-10:00","salon":"A5","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"86","trainer_id":"101","ruta":"NodeJS","hora":"10:00-14:00","salon":"A1","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"87","trainer_id":"107","ruta":"NetCore","hora":"14:00-18:00","salon":"A2","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"88","trainer_id":"104","ruta":"Java","hora":"06:00-10:00","salon":"A3","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"89","trainer_id":"101","ruta":"NodeJS","hora":"10:00-14:00","salon":"A4","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"90","trainer_id":"103","ruta":"NetCore","hora":"14:00-18:00","salon":"A5","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"91","trainer_id":"106","ruta":"Java","hora":"06:00-10:00","salon":"A1","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"},
+    {"camper_id":"34","trainer_id":"101","ruta":"NodeJS","hora":"10:00-14:00","salon":"A2","fecha_inicio":"2026-02-20","fecha_fin":"2026-06-20"}
+]
+}

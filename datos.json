@@ -1,1 +1,35 @@
-[]
+["id": "1001", "nombre": "Carlos", "apellido": "García", "direccion": "Calle 10 #5-20", "acudiente": "Marta García", "telefono_cel": 3101234561, "telefono_fijo": 601234561, "estado": "inscrito", "riesgo": "Bajo", "nota_evaluacion":70 ,"nota_proyecto":80,"nota_quiz":80 "password": "p1","salon":1,"horario":"6:00-18:00"]
+
+
+with open("rutas.json") as f:
+    rutas = json.load(f)
+
+with open("personas.json") as f:
+    personas = json.load(f)
+
+# asignar trainers a cada ruta
+for trainer in personas["Trainer"]:
+  trainer"] = 
+   {
+                "id": tr  for r in trainer["ruta"]:
+        if rutas[r]["trainer"] is None:
+            rutas[r]["ainer["id"],
+                "nombre": trainer["nombre"],
+                "horario": trainer["horario"]
+   }
+
+# función para agregar estudiante
+def agregar_estudiante(nombre, ruta):
+    if len(rutas[ruta]["inscritos"]) < rutas[ruta]["capacidad"]:
+        rutas[ruta]["inscritos"].append(nombre)
+        print(f"{nombre} agregado a {ruta}")
+    else:
+        print(f"No hay cupo en {ruta}")
+
+# ejemplo
+agregar_estudiante("Cristian Diaz", "Java")
+agregar_estudiante("Edwin Salas", "NetCore")
+
+# guardar cambios
+with open("rutas_actualizadas.json", "w") as f:
+    json.dump(rutas, f, indent=4)
